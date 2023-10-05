@@ -10,19 +10,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  crawl:
+  rawbib:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout source
-      uses: actions/checkout@v3
-      with:
-        repository: ietf-ribose/ieee-rawbib
-        token: ${{ secrets.IETF_BIB_BOT_PAT }}
-        path: ieee-rawbib
-    - name: Crawl
-      uses: relaton/support/.github/workflows/crawler.yml@master
-      with:
-        override-files: |
-          https://raw.githubusercontent.com/ietf-tools/bibxml-service/main/Gemfile=Gemfile
-        args: ${{ github.event.inputs.args }}
-        commit-indexes: false
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          repository: ietf-ribose/ieee-rawbib
+          token: ${{ secrets.IETF_BIB_BOT_PAT }}
+          path: ieee-rawbib
+  crawl:
+    uses: relaton/support/.github/workflows/crawler.yml@master
+    with:
+      override-files: |
+        https://raw.githubusercontent.com/ietf-tools/bibxml-service/main/Gemfile=Gemfile
+      args: ${{ github.event.inputs.args }}
+      commit-indexes: false
