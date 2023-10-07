@@ -6,8 +6,8 @@ t1 = Time.now
 puts "Started at: #{t1}"
 
 FileUtils.rm_rf("data")
-FileUtils.cp_r("relaton-data-rawbib/data", ".")
-FileUtils.rm_rf("relaton-data-rawbib")
+FileUtils.cp_r("relaton-data-ieee/data", ".")
+FileUtils.rm_rf("relaton-data-ieee")
 
 t2 = Time.now
 puts "Stopped at: #{t2}"

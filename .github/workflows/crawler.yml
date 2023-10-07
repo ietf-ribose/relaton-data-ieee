@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  rawbib:
+  checkout_source:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
